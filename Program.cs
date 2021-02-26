@@ -1,31 +1,16 @@
 ﻿using System;
-using EPAM_Training_Task_1.Arithmetic_Cycles;
+using LabWork_Cycles.Cycles;
 
-namespace EPAM_Training_Task_1
+namespace LabWork_Cycles
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("Arithmetic Cycles (6th variant):\n=> ");
-
-            double x;
-            int k;
-
-            Console.Write("Input value of K\n=> ");
-            while (!int.TryParse(Console.ReadLine(), out k))
-            {
-                Console.Write("Invalid input. Try again.\n=> ");
-            }
-
-            Console.Write("Input value of X\n=> ");
-            while (!double.TryParse(Console.ReadLine(), out x))
-            {
-                Console.Write("Invalid input. Try again.\n=> ");
-            }
-
-            Console.WriteLine("Formula: cos(nx) / n!");
-            Console.WriteLine($"The result is: {ArithmeticCycles.CalculateSum6(k, x)}");
+            Console.WriteLine("Welcome, User!");
+            Console.WriteLine("Choose cycle type to test:");
+            Console.WriteLine($"The answer is: {IterativeCycles.CalculateIterative6(0d, 0.3d, double.Epsilon)}");
+            Console.ReadLine();
         }
     }
 }
