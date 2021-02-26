@@ -6,10 +6,46 @@ namespace LabWork_Cycles.Cycles
 {
     public static class IterativeCycles
     {
-        public static double CalculateIterative6(double a, double b, double precision)
+        public static void CalculateIterative6()
         {
             Console.OutputEncoding = Encoding.UTF8;
             Console.WriteLine("The Formula is: \u221A(1-x) - tg(x) = 0");
+
+            double a, b;
+            Console.Write("Enter value of a:\n=> ");
+            while (!double.TryParse(Console.ReadLine(), out a))
+            {
+                Console.Write("Invalid value. Try again\n=> ");
+            }
+
+            Console.Write("Enter value of b:\n=> ");
+            while (!double.TryParse(Console.ReadLine(), out b))
+            {
+                Console.Write("Invalid value. Try again\n=> ");
+            }
+
+            Console.WriteLine("Precision is set to Epsilon.");
+            double precision = double.Epsilon;
+
+            if (a < b)
+            {
+                double temp = a;
+                a = b;
+                b = temp;
+            }
+
+            double answer = UseIterative6(a, b, precision);
+            if (answer == double.NaN)
+            {
+                Console.WriteLine($"No answer for this function in [{a};{b}]");
+            }
+            else
+            {
+                Console.WriteLine($"The answer is {answer}.");
+            }
+        }
+        private static double UseIterative6(double a, double b, double precision)
+        {
             Console.WriteLine($"Seeking answer from [{a};{b}]");
 
             double xn;
@@ -26,8 +62,7 @@ namespace LabWork_Cycles.Cycles
             }
             else
             {
-                Console.WriteLine($"No answer for this function in [{a};{b}]");
-                return -1;
+                return double.NaN;
             }
 
             double xn1;

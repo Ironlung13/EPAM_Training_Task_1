@@ -9,7 +9,21 @@ namespace LabWork_Cycles
         {
             Console.WriteLine("Welcome, User!");
             Console.WriteLine("Choose cycle type to test:");
-            Console.WriteLine($"The answer is: {IterativeCycles.CalculateIterative6(0d, 0.3d, double.Epsilon)}");
+            Console.WriteLine("1: Arithmetic Cycles.");
+            Console.WriteLine("2: Iterative Cycles.");
+            ProgramChoice:
+            switch (Console.ReadLine())
+            {
+                case "1":
+                    ArithmeticCycles.CalculateSum6();
+                    break;
+                case "2":
+                    IterativeCycles.CalculateIterative6();
+                    break;
+                default:
+                    Console.Write("Invalid input. Try again\n=> ");
+                    goto ProgramChoice;
+            }
             Console.ReadLine();
         }
     }
