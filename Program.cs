@@ -7,38 +7,25 @@ namespace EPAM_Training_Task_1
     {
         static void Main(string[] args)
         {
-            Tasks tasks = new Tasks();
+            Console.Write("Arithmetic Cycles (6th variant):\n=> ");
 
-        EntryPoint:
-            Console.Write("Choose desired calculation formula (range: 1-10): ");
-            int taskNumber = 0;
-            while (int.TryParse(Console.ReadLine(), out taskNumber) == false ||
-                   taskNumber > tasks.TaskDictionary.Count || taskNumber < 1)
+            double x;
+            int k;
+
+            Console.Write("Input value of K\n=> ");
+            while (!int.TryParse(Console.ReadLine(), out k))
             {
-                Console.WriteLine("Invalid input, try again");
+                Console.Write("Invalid input. Try again.\n=> ");
             }
 
-            var method = tasks.TaskDictionary[taskNumber];
-            double x = 0;
-            int k = 0;
-            Console.WriteLine($"You've chosen task number {taskNumber}.");
-
-            Console.WriteLine("Enter your X value (floating point number):");
+            Console.Write("Input value of X\n=> ");
             while (!double.TryParse(Console.ReadLine(), out x))
             {
-                Console.WriteLine("Invalid input of X, try again");
+                Console.Write("Invalid input. Try again.\n=> ");
             }
 
-            Console.WriteLine("Enter your K value (positive integer):");
-            while (!int.TryParse(Console.ReadLine(), out k) || k < 1)
-            {
-                Console.WriteLine("Invalid input of K, try again");
-            }
-
-            Console.WriteLine("The Sum is: {0}", method.Invoke(k, x));
-            Console.ReadLine();
-            Console.Clear();
-            goto EntryPoint;
+            Console.WriteLine("Formula: cos(nx) / n!");
+            Console.WriteLine($"The result is: {ArithmeticCycles.CalculateSum6(k, x)}");
         }
     }
 }
