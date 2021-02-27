@@ -6,7 +6,7 @@ namespace LabWork_Cycles.Cycles
 {
     public static class CMVCycles
     {
-        public static void CMVCylesTask1Variant6()
+        public static void Task1Variant6()
         {
             Console.WriteLine("Formula: E = x^n/n!");
             Console.Write("Enter value of X:\n=> ");
@@ -24,6 +24,19 @@ namespace LabWork_Cycles.Cycles
             }
 
             CalculateTask1Variant6(x, eps);
+        }
+
+        public static void Task2Variant6()
+        {
+            Console.WriteLine("Formula: 1/((2n-1)*(2n+1)");
+            Console.Write("Enter precision value eps:\n=> ");
+            double eps;
+            while (!double.TryParse(Console.ReadLine(), out eps))
+            {
+                Console.Write("Invalid input. Try again\n=> ");
+            }
+
+            CalculateTask2Variant6(eps);
         }
 
         private static void CalculateTask1Variant6(double x, double precision)
@@ -50,6 +63,23 @@ namespace LabWork_Cycles.Cycles
             {
                 Console.WriteLine($"Sum is {sum}, too small term => {xn1}");
             }
+        }
+
+        private static void CalculateTask2Variant6(double precision)
+        {
+            if (precision >= (1d/3d))
+            {
+                Console.WriteLine("Largest single term value is 1/3. Aborting.");
+                return;
+            }
+
+            double nextTerm;
+            double sum = 0;
+            for (ulong n = 1; (nextTerm = 1d/(2d * n - 1)/(2d * n + 1)) >= precision; n++)
+            {
+                sum += nextTerm;
+            }
+            Console.WriteLine($"Sum is {sum}, too small term => {nextTerm}");
         }
     }
 }
