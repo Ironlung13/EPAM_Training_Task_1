@@ -26,11 +26,11 @@ namespace LabWork_Cycles.Cycles
             CalculateTask1Variant6(x, eps);
         }
 
-        private static double CalculateTask1Variant6(double x, double precision)
+        private static void CalculateTask1Variant6(double x, double precision)
         {
             if (precision >= 1)
             {
-                return 0d;
+                Console.WriteLine("Sum is 0, too small term => 1");
             }
 
             double sum = 1;
@@ -43,10 +43,13 @@ namespace LabWork_Cycles.Cycles
             }
 
             if (double.IsInfinity(xn1))
+            {
                 Console.WriteLine("Overflow of sum and/or xn1. Aborting.");
+            }
             else
+            {
                 Console.WriteLine($"Sum is {sum}, too small term => {xn1}");
-            return sum;
+            }
         }
     }
 }
