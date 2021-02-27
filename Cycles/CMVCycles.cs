@@ -6,7 +6,7 @@ namespace LabWork_Cycles.Cycles
 {
     public static class CMVCycles
     {
-        public static void Task1Variant6()
+        public static void Task_1_Variant6()
         {
             Console.WriteLine("Formula: E = x^n/n!");
             Console.Write("Enter value of X:\n=> ");
@@ -23,10 +23,10 @@ namespace LabWork_Cycles.Cycles
                 Console.Write("Invalid input. Try again\n=> ");
             }
 
-            CalculateTask1Variant6(x, eps);
+            CalculateTask_1_Variant6(x, eps);
         }
 
-        public static void Task2Variant6()
+        public static void Task_2_Variant6()
         {
             Console.WriteLine("Formula: 1/((2n-1)*(2n+1)");
             Console.Write("Enter precision value eps:\n=> ");
@@ -36,10 +36,34 @@ namespace LabWork_Cycles.Cycles
                 Console.Write("Invalid input. Try again\n=> ");
             }
 
-            CalculateTask2Variant6(eps);
+            CalculateTask_2_Variant6(eps);
         }
 
-        private static void CalculateTask1Variant6(double x, double precision)
+        public static void Task_3_Variant6()
+        {
+            Console.OutputEncoding = Encoding.UTF8;
+            Console.WriteLine("an = \u221A|4an_1^2 - 2x|");
+
+            double x;
+            Console.Write("Enter value of X:\n=> ");
+            while (!double.TryParse(Console.ReadLine(), out x))
+            {
+                Console.Write("Invalid input. Try again\n=> ");
+            }
+
+            double eps;
+            Console.Write("Enter value of eps:\n=> ");
+            while (!double.TryParse(Console.ReadLine(), out eps))
+            {
+                Console.Write("Invalid input. Try again\n=> ");
+            }
+
+            CalculateTask_3_Variant6(x, eps);
+        }
+
+        
+
+        private static void CalculateTask_1_Variant6(double x, double precision)
         {
             if (precision >= 1)
             {
@@ -65,7 +89,7 @@ namespace LabWork_Cycles.Cycles
             }
         }
 
-        private static void CalculateTask2Variant6(double precision)
+        private static void CalculateTask_2_Variant6(double precision)
         {
             if (precision >= (1d/3d))
             {
@@ -80,6 +104,20 @@ namespace LabWork_Cycles.Cycles
                 sum += nextTerm;
             }
             Console.WriteLine($"Sum is {sum}, too small term => {nextTerm}");
+        }
+
+        private static void CalculateTask_3_Variant6(double x, double precision)
+        {
+            double xn;
+            double xn1 = x;
+            do
+            {
+                xn = xn1;
+                xn1 = Math.Sqrt(Math.Abs(4 * Math.Pow(xn, 2) - 2 * x));
+            }
+            while (Math.Abs(xn1 - xn) >= precision);
+
+            Console.WriteLine($"Answer is => {xn1}");
         }
     }
 }

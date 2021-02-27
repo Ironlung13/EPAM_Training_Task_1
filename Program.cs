@@ -13,6 +13,7 @@ namespace LabWork_Cycles
             Console.WriteLine("2: Iterative Cycles.");
             Console.WriteLine("3: CMV Cycles Task 1.");
             Console.WriteLine("4: CMV Cycles Task 2.");
+            Console.WriteLine("5: CMV Cycles Task 3.");
             Console.Write("\n=> ");
             ProgramChoice:
             switch (Console.ReadLine())
@@ -24,10 +25,13 @@ namespace LabWork_Cycles
                     IterativeCycles.CalculateIterative6();
                     break;
                 case "3":
-                    CMVCycles.Task1Variant6();
+                    CMVCycles.Task_1_Variant6();
                     break;
                 case "4":
-                    CMVCycles.Task2Variant6();
+                    CMVCycles.Task_2_Variant6();
+                    break;
+                case "5":
+                    CMVCycles.Task_3_Variant6();
                     break;
                 default:
                     Console.Write("Invalid input. Try again\n=> ");
