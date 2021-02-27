@@ -11,6 +11,8 @@ namespace LabWork_Cycles
             Console.WriteLine("Choose cycle type to test:");
             Console.WriteLine("1: Arithmetic Cycles.");
             Console.WriteLine("2: Iterative Cycles.");
+            Console.WriteLine("3: CMV Cycles.");
+            Console.Write("\n=> ");
             ProgramChoice:
             switch (Console.ReadLine())
             {
@@ -19,6 +21,9 @@ namespace LabWork_Cycles
                     break;
                 case "2":
                     IterativeCycles.CalculateIterative6();
+                    break;
+                case "3":
+                    CMVCycles.CMVCylesTask1Variant6();
                     break;
                 default:
                     Console.Write("Invalid input. Try again\n=> ");
