@@ -11,33 +11,14 @@ namespace LabWork_Cycles.Cycles
             Console.OutputEncoding = Encoding.UTF8;
             Console.WriteLine("The Formula is: \u221A(1-x) - tg(x) = 0");
 
-            double a, b;
-            Console.Write("Enter value of a:\n=> ");
-            while (!double.TryParse(Console.ReadLine(), out a))
-            {
-                Console.Write("Invalid value. Try again\n=> ");
-            }
-
-            Console.Write("Enter value of b:\n=> ");
-            while (!double.TryParse(Console.ReadLine(), out b))
-            {
-                Console.Write("Invalid value. Try again\n=> ");
-            }
-
+            Console.WriteLine("Searching for answer in [0;1]");
             Console.WriteLine("Precision is set to Epsilon.");
             double precision = double.Epsilon;
 
-            if (a < b)
+            double answer = UseIterative6(0, 1, precision);
+            if (answer is double.NaN)
             {
-                double temp = a;
-                a = b;
-                b = temp;
-            }
-
-            double answer = UseIterative6(a, b, precision);
-            if (answer == double.NaN)
-            {
-                Console.WriteLine($"No answer for this function in [{a};{b}]");
+                Console.WriteLine($"No answer for this function in [0;1]");
             }
             else
             {
@@ -68,7 +49,7 @@ namespace LabWork_Cycles.Cycles
             double xn1;
             do
             {
-                xn1 = xn - (Function6(xn) * (xn - c)) / (Function6(xn) - Function6(c));
+                xn1 = xn - Function6(xn) * (xn - c) / (Function6(xn) - Function6(c));
                 xn = xn1;
             }
             while (Math.Abs(Function6(xn1)) >= precision);
