@@ -68,12 +68,13 @@ namespace LabWork_Cycles.Cycles
             if (precision >= 1)
             {
                 Console.WriteLine("Sum is 0, too small term => 1");
+                return;
             }
 
             double sum = 1;
             double xn = 1;
             double xn1;
-            for (ulong n = 0; Math.Abs((xn1 = xn * x / (n + 1))) >= precision && !double.IsInfinity(xn1); n++)
+            for (ulong n = 0; Math.Abs(xn1 = xn * x / (n + 1)) >= precision && !double.IsInfinity(xn1); n++)
             {
                 sum += xn1;
                 xn = xn1;
@@ -115,7 +116,7 @@ namespace LabWork_Cycles.Cycles
                 xn = xn1;
                 xn1 = Math.Sqrt(Math.Abs(4 * Math.Pow(xn, 2) - 2 * x));
             }
-            while (Math.Abs(xn1 - xn) >= precision);
+            while (Math.Abs(xn1 - xn) <= precision);
 
             Console.WriteLine($"Answer is => {xn1}");
         }
