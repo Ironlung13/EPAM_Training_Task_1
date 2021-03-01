@@ -7,6 +7,7 @@ namespace LabWork_Cycles
     {
         static void Main(string[] args)
         {
+            EntryPoint:
             Console.WriteLine("Welcome, User!");
             Console.WriteLine("Choose cycle type to test:");
             Console.WriteLine("1: Arithmetic Cycles.");
@@ -37,7 +38,16 @@ namespace LabWork_Cycles
                     Console.Write("Invalid input. Try again\n=> ");
                     goto ProgramChoice;
             }
-            Console.ReadLine();
+
+            Console.WriteLine("To quit program, enter \"q\"");
+            Console.WriteLine("To restart program, enter anything else.");
+            switch (Console.ReadLine())
+            {
+                case "q":
+                    return;
+                default:
+                    goto EntryPoint;
+            }
         }
     }
 }
