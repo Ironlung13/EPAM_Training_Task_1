@@ -5,9 +5,9 @@ namespace LabWork_Cycles
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            EntryPoint:
+        EntryPoint:
             Console.WriteLine("Welcome, User!");
             Console.WriteLine("Choose cycle type to test:");
             Console.WriteLine("1: Arithmetic Cycles.");
@@ -16,7 +16,7 @@ namespace LabWork_Cycles
             Console.WriteLine("4: CMV Cycles Task 2.");
             Console.WriteLine("5: CMV Cycles Task 3.");
             Console.Write("\n=> ");
-            ProgramChoice:
+        ProgramChoice:
             switch (Console.ReadLine())
             {
                 case "1":
@@ -44,9 +44,11 @@ namespace LabWork_Cycles
             switch (Console.ReadLine())
             {
                 case "q":
+                case "Q":
                     return;
                 default:
-                    goto EntryPoint;
+                    Main();
+                    return;
             }
         }
     }
